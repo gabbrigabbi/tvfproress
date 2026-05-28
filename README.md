@@ -1,65 +1,38 @@
-# TVF PRO RES — Página de Vendas
+# TVF ProRes — Landing Page
 
-Página de vendas oficial do curso TVF PRO RES.
+Landing page do curso TVF ProRes.
 
-## 🚀 Deploy no Vercel — Passo a passo
+## Deploy no Vercel
 
-### Método 1: Drag & Drop (mais fácil)
+1. Faça push deste repositório para o GitHub
+2. Acesse [vercel.com](https://vercel.com)
+3. Clique em **Add New Project**
+4. Importe o repositório do GitHub
+5. Clique em **Deploy** — sem configuração adicional necessária
 
-1. Acesse **https://vercel.com/new**
-2. Faça login (GitHub, Google ou email)
-3. Role até a seção **"Deploy a Template"** ou clique em **"Import"**
-4. Procure a opção de upload de pasta — ou acesse diretamente:
-   **https://vercel.com/new/clone** e use a área de drop
-5. Arraste a pasta `tvf-deploy` inteira para a área de upload
-6. Clique em **Deploy**
-7. Em ~30 segundos sua URL estará no ar
-
-### Método 2: Vercel CLI
-
-```bash
-# Instalar Vercel CLI (uma vez só)
-npm install -g vercel
-
-# Entrar na pasta do projeto
-cd tvf-deploy
-
-# Fazer deploy
-vercel
-
-# Para deploy de produção (URL definitiva)
-vercel --prod
-```
-
-### Método 3: GitHub (recomendado para atualizações futuras)
-
-1. Crie um repositório no GitHub
-2. Faça upload dos arquivos `index.html` e `vercel.json`
-3. Em https://vercel.com/new, conecte o repositório
-4. Toda alteração no GitHub atualiza o site automaticamente
-
----
-
-## 📂 Estrutura do projeto
+## Estrutura
 
 ```
-tvf-deploy/
-├── index.html      # Página de vendas (tudo embutido)
-└── vercel.json     # Configurações de segurança e cache
+tvf-prores/
+├── index.html      ← página completa (HTML + CSS + JS inline)
+├── vercel.json     ← configuração do Vercel
+├── .gitignore
+└── README.md
 ```
 
-## 🌐 Após o deploy
+## Atualizar a data de fechamento do carrinho
 
-- A URL inicial será algo como: `tvf-pro-res-xxx.vercel.app`
-- Para domínio personalizado: **Settings → Domains** no painel da Vercel
-- Apontar o DNS do seu domínio para a Vercel (instruções aparecem na hora)
+No `index.html`, localize a linha:
 
-## 🔧 Para atualizar a página
+```js
+const end = new Date('2026-06-10T23:59:59-03:00');
+```
 
-Basta substituir o `index.html` e fazer novo deploy. Se usar GitHub, é automático.
+Troque a data conforme necessário.
 
-## ⚙️ Configurações incluídas no vercel.json
+## Link de compra
 
-- Headers de segurança (XSS, clickjacking, MIME-sniffing)
-- Cache otimizado para performance
-- URLs limpas (sem .html no final)
+O botão de compra aponta para:
+`https://pay.kiwify.com.br/b43kYhK`
+
+Para alterar, busque essa URL no `index.html` e substitua.
