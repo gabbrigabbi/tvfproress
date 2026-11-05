@@ -6,6 +6,15 @@
 <title>TVF ProRes — O mercado mudou. A sua entrega precisa mudar.</title>
 <meta name="description" content="Curso de gravação em ProRes no celular, com o Blackmagic Camera. Gravar no nível de quem cobra caro: ProRes e as decisões antes do REC.">
 <link rel="icon" href="midia/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.prores.tudovirafilme.com.br/">
+<meta property="og:title" content="TVF ProRes — curso de gravação em ProRes no celular">
+<meta property="og:description" content="O mercado mudou. A sua entrega precisa mudar. Grave no nível de quem cobra caro: ProRes e as decisões antes do REC.">
+<meta property="og:image" content="https://www.prores.tudovirafilme.com.br/midia/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0B0C">
 <style>
 @font-face{font-family:Burbank;src:url(midia/Burbank.otf);font-display:swap}
 @font-face{font-family:Inter;src:url(midia/inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
@@ -105,6 +114,13 @@ body[data-tema="laranja"] .barra .logo img{filter:brightness(0)}
 .abertura .sobre{position:absolute;left:0;right:0;top:92px;text-align:center}
 .abertura .sobre .mono{color:var(--suave)}
 .oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* rodada 53: frase do curso logo abaixo do T gigante (computador) e embaixo, no centro (celular) */
+.abertura h1.frase-b{position:absolute;z-index:3;left:calc(var(--fx,40px) + .4vw);top:calc(var(--fy,30vh) + 18px);bottom:auto;right:auto;text-align:left;
+  font-family:Inter;font-weight:300;font-size:clamp(17px,1.7vw,30px);line-height:1.15;letter-spacing:-.01em;color:var(--creme);max-width:15em;
+  text-shadow:0 2px 18px rgba(0,0,0,.35);pointer-events:none}
+.abertura h1.frase-b b{font-weight:700}
+html.versao-a .abertura h1.frase-b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.barra .logo.escondido{translate:0 -160%;opacity:0;pointer-events:none}
 .abertura h1{position:absolute;left:0;right:0;bottom:7vh;text-align:center;pointer-events:none}
 .abertura h1 .fino{display:block;font-size:clamp(30px,4.2vw,72px);line-height:1}
 .abertura h1 .bb{display:block;font-size:clamp(46px,7.4vw,132px);color:var(--laranja)}
@@ -280,6 +296,22 @@ a.v{display:block}
 .leque .carta .mono{color:var(--laranja);margin-top:8px}
 .leque .carta a{display:inline-block;margin-top:6px;font-size:14px;color:var(--suave)}
 
+/* depoimentos */
+.alunos{padding:4vh var(--g) 18vh;text-align:center}
+.alunos h2{font-size:clamp(60px,10vw,180px)}
+.alunos h2 .fino{color:var(--laranja)}
+.depos{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1240px;margin:8vh auto 0;text-align:left}
+.depo{position:relative;margin:0;padding:clamp(28px,3vw,48px);border:1px solid var(--linha);border-radius:24px;background:rgba(255,255,255,.32)}
+.depo .aspas{position:absolute;top:-.18em;left:.28em;font-family:Burbank,Impact;font-size:clamp(110px,9vw,170px);line-height:1;color:var(--laranja)}
+.depo blockquote{margin:0;font-family:Inter;font-weight:300;font-size:clamp(18px,1.45vw,23px);line-height:1.45;letter-spacing:-.01em}
+.depo blockquote b{font-weight:700}
+.depo blockquote.extra{margin-top:18px;font-size:clamp(15px,1.1vw,17px);color:var(--suave)}
+.depo blockquote.extra b{color:var(--tx)}
+.depo figcaption{margin-top:28px;padding-top:20px;border-top:1px solid var(--linha);display:flex;flex-direction:column;gap:6px}
+.depo figcaption b{font-family:Burbank,Impact;font-weight:400;font-size:28px;text-transform:uppercase;line-height:1}
+.depo figcaption .mono{color:var(--laranja)}
+.alunos .fonte{margin-top:28px;color:var(--suave)}
+
 /* oferta (laranja) */
 .oferta{padding:18vh var(--g);text-align:center}
 .oferta .mono{color:var(--suave)}
@@ -290,7 +322,15 @@ a.v{display:block}
 .parc{font-size:18px;margin:18px 0 40px}
 .btn-escuro{display:inline-flex;gap:14px;align-items:center;background:#140700;color:var(--creme);padding:20px 30px;border-radius:12px;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;transition:transform .6s var(--expo)}
 .btn-escuro:hover{transform:scale(1.05)}
-.seg{margin-top:20px;font-size:13px;color:var(--suave)}
+.seg{margin-top:16px;font-size:13px;color:var(--suave)}
+.cta-meio{margin-top:9vh;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.cta-meio .pilula{padding:18px 28px;font-size:13px;height:auto}
+.cta-meio .mono{color:var(--suave)}
+/* selo de garantia perto do preço (rodada 53) */
+.garantia{display:inline-flex;align-items:center;gap:16px;margin-top:28px;padding:16px 22px;border:1px solid rgba(20,7,0,.28);border-radius:16px;text-align:left;max-width:520px}
+.garantia svg{flex:none;width:44px;height:44px}
+.garantia b{display:block;font-family:Burbank,Impact;font-weight:400;font-size:26px;text-transform:uppercase;line-height:1}
+.garantia span{display:block;font-size:14px;line-height:1.45;margin-top:4px}
 .incluso{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);margin-top:12vh;text-align:left;border:1px solid var(--linha)}
 .incluso div{background:var(--bg);padding:24px 20px;transition:background-color .9s var(--expo)}
 .incluso b{display:block;font-family:Burbank,Impact;font-weight:400;font-size:22px;text-transform:uppercase;margin:8px 0 6px}
@@ -345,10 +385,12 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   .cartoes .cartao.largo{height:auto;aspect-ratio:1/1}.cartao.largo .base{width:auto;right:60px}
   .cartao.largo .pontos{top:15%;right:0;left:0;width:100%;height:28%}.cartao.largo .dica{display:none}
   .incluso{grid-template-columns:1fr 1fr}
+  .depos{grid-template-columns:1fr;margin-top:6vh}
   .leque{flex-direction:column;align-items:center;gap:6vh}.leque .v{width:62vw;border-radius:12px}
   .mensagem .foto{width:52vw}
   .faq summary{grid-template-columns:40px 1fr 30px}.faq p{padding-left:0}
   .barra .logo{width:96px}
+  .abertura h1.frase-b{left:0;right:0;top:auto;bottom:9vh;text-align:center;margin:0 auto;font-size:19px;max-width:none;padding:0 var(--g);text-shadow:0 2px 14px rgba(0,0,0,.6)}
   .barra .pilula{display:none}
   .assinatura img{height:110px}
   .assinatura{bottom:10vh}
@@ -389,7 +431,7 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
       <g fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"><path d="M70.1,586.6 L90.1,582.6 L122.1,566.6 L130.1,574.6 L142.1,574.6 L146.1,570.6 L166.2,570.6 L206.2,562.6 L210.2,558.6 L230.2,558.6" data-comp="171.7"/><path d="M122.1,566.6 L142.1,534.5 L210.2,490.5 L234.2,482.5" data-comp="144.2"/><path d="M166.2,1559.6 L166.2,1539.5 L170.2,1535.5 L174.2,1379.4 L178.2,1375.4 L178.2,1331.3 L182.2,1327.3 L182.2,1255.3 L186.2,1251.2 L186.2,1223.2 L190.2,1219.2 L190.2,1167.2 L194.2,1163.2 L198.2,1135.1 L218.2,1111.1 L222.2,1099.1 L234.2,1027.0 L238.2,1023.0 L238.2,1011.0 L258.3,942.9 L258.3,926.9 L266.3,910.9 L266.3,898.9 L278.3,862.9 L282.3,830.8 L290.3,810.8 L318.3,678.7 L338.3,658.7 L338.3,582.6 L342.3,578.6 L342.3,550.5 L346.3,546.5 L346.3,518.5 L350.3,514.5 L346.3,510.5 L342.3,470.5 L326.3,450.4 L318.3,446.4 L286.3,446.4 L282.3,450.4 L258.3,450.4 L250.2,454.5" data-comp="1241.8"/><path d="M170.2,466.5 L222.2,422.4 L234.2,418.4" data-comp="80.8"/><path d="M194.2,1131.1 L186.2,1123.1 L190.2,1011.0 L194.2,1007.0 L194.2,963.0 L198.2,959.0 L198.2,914.9 L202.2,910.9 L202.2,870.9 L206.2,866.9 L206.2,822.8 L210.2,818.8 L210.2,782.8 L214.2,778.8 L214.2,742.7 L218.2,738.7 L218.2,702.7 L222.2,698.7 L222.2,662.7 L226.2,658.7 L226.2,622.6 L230.2,618.6 L230.2,570.6 L238.2,546.5 L238.2,486.5 L246.2,458.5 L242.2,402.4 L246.2,398.4 L250.2,362.4 L266.3,310.3 L258.3,298.3 L266.3,206.2 L270.3,202.2 L278.3,154.2 L302.3,94.1" data-comp="1073.5"/><path d="M242.2,546.5 L318.3,530.5 L322.3,526.5 L342.3,526.5" data-comp="103.4"/><path d="M266.3,266.3 L278.3,266.3 L294.3,278.3" data-comp="32.0"/><path d="M310.3,86.1 L314.3,82.1 L330.3,82.1 L338.3,90.1 L334.3,170.2 L302.3,270.3 L282.3,298.3 L266.3,306.3" data-comp="270.6"/><path d="M414.4,1503.5 L410.4,1499.5 L410.4,1475.5 L402.4,1455.5 L394.4,1371.4 L390.4,1367.4 L382.4,1295.3 L374.4,1267.3 L370.4,1207.2 L366.4,1203.2 L362.4,1139.1 L358.4,1135.1 L358.4,1107.1 L354.4,1103.1 L354.4,1075.1 L350.3,1071.1 L350.3,1043.0 L346.3,1039.0 L346.3,1011.0 L342.3,975.0 L338.3,971.0 L334.3,914.9 L330.3,910.9 L330.3,886.9 L326.3,882.9 L326.3,858.9" data-comp="665.3"/><path d="M342.3,666.7 L354.4,678.7 L354.4,702.7 L358.4,706.7 L358.4,738.7 L362.4,742.7 L362.4,770.8 L366.4,774.8 L370.4,850.8 L374.4,854.9 L382.4,959.0 L386.4,963.0 L386.4,991.0 L390.4,995.0 L390.4,1023.0 L394.4,1027.0 L394.4,1055.1 L398.4,1059.1 L410.4,1199.2 L414.4,1203.2 L414.4,1223.2 L430.4,1235.2" data-comp="597.3"/><path d="M350.3,514.5 L354.4,510.5 L382.4,510.5 L502.5,474.5 L554.6,470.5 L578.6,450.4 L598.6,446.4 L610.6,438.4 L630.6,434.4 L702.7,402.4 L710.7,402.4 L798.8,350.3 L890.9,270.3" data-comp="609.1"/><path d="M538.5,374.4 L534.5,418.4 L530.5,422.4 L530.5,462.5 L538.5,470.5 L526.5,494.5 L526.5,530.5 L518.5,558.6 L514.5,634.6 L510.5,638.6 L510.5,682.7 L506.5,686.7 L506.5,722.7 L502.5,726.7 L498.5,798.8 L494.5,802.8 L494.5,838.8 L490.5,842.8 L490.5,870.9 L486.5,874.9 L486.5,934.9 L482.5,938.9 L482.5,950.9 L490.5,963.0 L490.5,971.0 L478.5,987.0 L470.5,1011.0 L466.5,1075.1 L462.5,1079.1 L462.5,1103.1 L458.5,1107.1 L458.5,1135.1 L454.5,1139.1 L446.4,1219.2 L430.4,1243.2 L430.4,1275.3 L434.4,1279.3 L434.4,1291.3 L430.4,1295.3 L434.4,1343.3 L430.4,1351.3 L434.4,1355.4" data-comp="1026.0"/><path d="M518.5,1039.0 L510.5,991.0 L490.5,975.0" data-comp="74.3"/><path d="M498.5,950.9 L510.5,946.9 L554.6,898.9 L586.6,870.9 L610.6,862.9" data-comp="145.7"/><path d="M522.5,1383.4 L538.5,1355.4 L558.6,1291.3 L574.6,1199.2 L578.6,1195.2 L578.6,1175.2 L582.6,1171.2 L586.6,1131.1 L590.6,1127.1 L594.6,1071.1 L598.6,1067.1 L598.6,1043.0 L602.6,1039.0 L606.6,967.0 L610.6,963.0 L610.6,930.9 L614.6,926.9 L614.6,882.9 L618.6,878.9 L618.6,866.9 L614.6,862.9 L618.6,854.9 L618.6,722.7 L614.6,718.7 L614.6,642.6 L610.6,638.6 L614.6,614.6 L590.6,562.6 L586.6,510.5 L578.6,494.5 L558.6,474.5" data-comp="953.2"/><path d="M530.5,534.5 L554.6,546.5 L566.6,546.5 L578.6,554.6 L586.6,554.6" data-comp="61.4"/><path d="M618.6,622.6 L622.6,626.6 L650.6,630.6 L678.7,646.6 L694.7,646.6 L722.7,666.7 L762.8,666.7 L774.8,662.7" data-comp="169.5"/><path d="M622.6,830.8 L646.6,826.8 L734.7,778.8 L786.8,774.8" data-comp="176.9"/><path d="M730.7,798.8 L722.7,790.8 L722.7,766.8 L718.7,762.8 L714.7,714.7 L710.7,710.7 L710.7,674.7 L702.7,638.6 L706.7,542.5 L722.7,478.5 L734.7,454.5 L758.8,434.4 L790.8,438.4 L802.8,454.5 L814.8,482.5 L818.8,522.5 L822.8,526.5 L818.8,602.6 L814.8,606.6 L814.8,618.6 L802.8,638.6" data-comp="634.1"/></g></mask></defs>
     <image href="midia/abertura/assinatura-tvf-fina.png" width="961" height="1637" mask="url(#m-tinta)"/>
   </svg>
-  <h1 class="oculto">TVF ProRes — curso de gravação em ProRes no celular</h1>
+  <h1 class="frase-b"><span class="oculto">TVF ProRes — </span>Curso de gravação em<br><b>ProRes no celular</b></h1>
 </section>
 
 <section class="manifesto" id="metodo" data-tema="escuro">
@@ -445,6 +487,7 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
     <div class="cartao sobe"><div class="topo mono"><span>Módulo 08</span><span class="lar">4 aulas</span></div><div class="base"><b>Como fechar clientes</b><ol><li>Como começar mesmo sem nome</li><li>Clientes toda semana</li><li>Script de venda que fecha</li><li>Meu método real de crescimento</li></ol></div></div>
     <div class="cartao largo sobe"><canvas class="pontos" aria-hidden="true"></canvas><span class="dica mono">passe o mouse · construa autoridade</span><div class="topo mono"><span>Módulo 09</span><span class="lar">3 aulas</span></div><div class="base"><b>Posicionamento digital</b><ol><li>Por que bons profissionais continuam invisíveis</li><li>Instagram que passa valor</li><li>Portfólio que fecha cliente</li></ol></div></div>
   </div>
+  <div class="cta-meio"><a class="pilula" href="https://pay.kiwify.com.br/b43kYhK">Garantir minha vaga →</a><span class="mono">R$ 997 ou 12x de R$ 103,11 · 7 dias de garantia</span></div>
 </section>
 
 <!-- vídeo da aula na rua que cresce até a tela cheia -->
@@ -479,13 +522,35 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   </div>
 </section>
 
+<!-- rodada 53: depoimentos reais (mensagens no grupo da comunidade, enviadas por ele em 05/11). Trechos literais, sem número de telefone. -->
+<section class="alunos" id="alunos" data-tema="claro">
+  <h2 class="bb"><span class="fino">na voz dos</span> alunos.</h2>
+  <div class="depos">
+    <figure class="depo">
+      <span class="aspas" aria-hidden="true">“</span>
+      <blockquote>Sinto que minha entrega evoluiu muito. Passei a ter mais segurança, mais intenção em cada escolha e a enxergar meu trabalho de uma forma muito mais profissional. E isso também refletiu nas oportunidades que surgiram, <b>nos novos contratos que fechei</b> e na confiança que tenho construído com meus clientes.</blockquote>
+      <blockquote class="extra">O suporte de vocês é algo surreal e que faz toda a diferença. Às vezes são 00h e lá estou eu chamando eles para me socorrerem com alguma dúvida.</blockquote>
+      <figcaption><b>Maria Clara</b><span class="mono">trabalha com eventos e casamentos</span></figcaption>
+    </figure>
+    <figure class="depo">
+      <span class="aspas" aria-hidden="true">“</span>
+      <blockquote>Eu me lembro do primeiro dia em que abri o Blackmagic e vi tudo aquilo azul, hahaha! E pensar em como, através das aulas, dos ensinamentos e de toda a jornada, fui evoluindo até chegar ao lugar em que estou hoje.</blockquote>
+      <blockquote class="extra"><b>Hoje tenho segurança na minha entrega</b>, no meu olhar e na profissional que me tornei.</blockquote>
+      <figcaption><b>Aline Blois</b><span class="mono">aluna desde a 2ª imersão</span></figcaption>
+    </figure>
+  </div>
+  <p class="fonte mono">mensagens enviadas no grupo da comunidade TVF</p>
+</section>
+
 <section class="oferta" id="oferta" data-tema="laranja">
   <div class="mono">Sua entrada na nova geração do audiovisual</div>
   <h2 class="bb"><span class="fino">TVF</span>ProRes</h2>
   <div class="preco"><small>R$</small>997</div>
   <div class="parc">ou 12x de R$ 103,11 · pagamento único</div>
   <a class="btn-escuro" href="https://pay.kiwify.com.br/b43kYhK">Garantir minha vaga <span>→</span></a>
-  <div class="seg">Compra segura pela Kiwify · 7 dias de garantia</div>
+  <div><div class="garantia"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4 7 10v13c0 10.5 7.2 18.6 17 21 9.8-2.4 17-10.5 17-21V10z"/><path d="m16.5 24 5.5 5.5 10-11"/></svg>
+    <div><b>7 dias de garantia</b><span>Entrou e viu que não é para você? Pede o reembolso pela Kiwify em até 7 dias e recebe o valor de volta.</span></div></div></div>
+  <div class="seg">Compra segura pela Kiwify</div>
   <div class="incluso">
     <div><span class="mono">01</span><b>Curso completo</b><span>9 módulos e mais de 40 aulas, com as próximas atualizações.</span></div>
     <div><span class="mono">02</span><b>Aulas na rua</b><span>Captação real, com luz, cenário e desafio de produção.</span></div>
@@ -619,10 +684,28 @@ function montaRaiox() {
   // preenche a tela (cover); no celular o aparelho fica no centro
   const s = Math.max(W / foto.naturalWidth, H / foto.naturalHeight), w = foto.naturalWidth * s, h = foto.naturalHeight * s;
   const x = (W - w) / 2, y = (H - h) / 2 - (W < 700 ? H * .06 : 0);
-  const pinta = img => { const c = document.createElement("canvas"); c.width = W * d; c.height = H * d; const g = c.getContext("2d"); g.scale(d, d); g.drawImage(img, x, y, w, h); return c; };
+  const pinta = img => { const c = document.createElement("canvas"); c.width = W * d; c.height = H * d; const g = c.getContext("2d"); g.scale(d, d); g.imageSmoothingQuality = "high"; g.drawImage(img, x, y, w, h); return c; };
   base = pinta(foto); raio = pinta(fotoRx);
+  if (VERSAO_B && maoB.naturalWidth) {   // B: TVF gigante entre o fundo e a mão com o celular
+    const g = base.getContext("2d"), cel = W < 700;
+    const lw = cel ? W * TVF.celW : W * TVF.w, lh = lw * 205 / 803;   // só as letras TVF do logo oficial (linhas 101–305; sem a etiqueta ProRes de cima)
+    const lx = (W - lw) / 2, ly = H * (cel ? TVF.celY : TVF.y);
+    // rodada 55: TVF em VETOR (contorno do logo oficial vetorizado por ferramentas/vetorizar.py) — nítido em qualquer tamanho
+    g.save(); g.translate(lx, ly); g.scale(lw / 803, lh / 205); g.globalAlpha = TVF.opac; g.fillStyle = TVF.cor; g.fill(TVF_LETRAS); g.restore();
+    g.imageSmoothingQuality = "high"; g.drawImage(maoB, x, y, w, h);   // a mão e o celular voltam por cima do TVF
+    const abB = document.querySelector(".abertura"); abB.style.setProperty("--fx", lx + "px"); abB.style.setProperty("--fy", (ly + lh) + "px");
+  }
 }
-const pronto = () => { if (foto.complete && fotoRx.complete) montaRaiox(); };
+// A/B da abertura (rodada 52/53): B é o padrão (TVF gigante atrás do celular). ?a na URL = versão A antiga.
+const VERSAO_B = !new URLSearchParams(location.search).has("a");
+const TVF = { w: .9, y: .11, celW: .92, celY: .095, cor: "#F9EDD8", opac: .96 };
+const maoB = new Image();
+// letras T V F do logo oficial em vetor (caixa 803×205 = mesmas medidas do logo.png sem a etiqueta ProRes); cópia em midia/abertura/tvf-letras.svg
+const TVF_LETRAS = new Path2D("M-0.12,0.00L4.00,-0.36L260.00,-0.30L262.00,0.97L263.40,3.00L264.47,6.00L267.26,11.00L278.65,35.00L290.34,58.00L291.89,62.00L291.69,63.00L291.43,64.00L290.00,65.38L288.00,65.69L181.00,65.61L174.00,65.65L173.35,66.00L172.78,67.00L172.75,70.00L172.78,203.00L172.00,203.68L105.00,203.64L104.33,203.00L104.25,201.00L104.00,66.25L103.00,65.61L0.00,65.48L-0.43,64.00L-0.43,1.00ZM275.53,0.00L277.00,-0.42L348.00,-0.43L351.00,-0.41L351.60,0.00L354.40,5.00L375.21,48.00L379.62,58.00L384.37,67.00L384.49,68.00L410.47,122.00L419.46,140.00L421.00,141.12L423.15,139.00L451.78,79.00L460.45,62.00L489.88,1.00L491.00,-0.35L566.00,-0.43L567.03,0.00L567.82,2.00L538.55,61.00L518.37,103.00L476.43,187.00L471.40,198.00L469.46,201.00L466.00,203.37L464.00,203.65L378.00,203.69L374.31,203.00L373.00,202.29L370.89,200.00L274.61,3.00L274.59,1.00ZM599.10,0.00L603.00,-0.43L801.00,-0.40L801.73,1.00L801.71,63.00L801.61,65.00L801.00,65.55L636.00,65.67L632.00,67.53L630.73,69.00L629.63,72.00L629.63,91.00L631.00,92.06L639.00,92.12L801.00,92.18L801.72,93.00L801.60,141.00L801.00,141.55L799.00,141.60L631.00,141.60L630.08,142.00L629.66,143.00L629.62,202.00L629.59,203.00L629.00,203.59L563.00,203.45L562.57,203.00L562.57,45.00L563.62,35.00L566.75,26.00L568.87,22.00L573.00,16.14L578.00,10.63L583.00,6.70L588.00,3.70L593.00,1.58Z");
+if (!VERSAO_B) document.documentElement.classList.add("versao-a");
+else document.querySelector(".barra .logo").classList.add("escondido");   // na 1ª tela o TVF grande já é a marca
+const pronto = () => { if (foto.complete && fotoRx.complete && (!VERSAO_B || maoB.complete)) montaRaiox(); };
+if (VERSAO_B) { maoB.onload = pronto; maoB.src = "midia/abertura/iphone-mao-recorte.webp?v=2"; }
 foto.onload = pronto; fotoRx.onload = pronto; pronto();
 // máscara líquida: só existe enquanto o mouse mexe. Cada movimento solta gotas com inércia (herdam a velocidade do mouse,
 // escorregam e encolhem); as gotas se fundem como metaballs numa máscara de baixa resolução, que depois é suavizada.
@@ -720,7 +803,8 @@ gsap.timeline()
   .to([car, logoC], { filter: "blur(30px)", duration: .95, ease: "power3.in" }, "<")
   .to("#raiox", { scale: 1, filter: "sepia(0) saturate(1) hue-rotate(0deg) brightness(1) contrast(1) blur(0px)", duration: 1.1, ease: "power3.out" }, "<.25")
   .set([car, logoC], { display: "none" }, "<.7")
-  .from(".barra", { opacity: 0, y: 14, duration: .9, ease: expo }, "<");
+  .from(".barra", { opacity: 0, y: 14, duration: .9, ease: expo }, "<")
+  .from(".abertura h1.frase-b", { opacity: 0, y: 18, duration: .9, ease: expo }, "<.12");
 
 // 2ª tela (como o site de referência): a abertura fica presa; a foto encolhe até um quadro no centro, ganha um tom
 // cinza sem cor e de pouco contraste (pedido dele, rodada 26), o fundo vai para um marrom entre o laranja e o preto, e a assinatura TVF se escreve por cima
@@ -734,6 +818,7 @@ const tl2 = gsap.timeline({ scrollTrigger: { trigger: ".abertura", start: "top t
 tl2.fromTo("#raiox", { scale: 1, clipPath: "inset(0% 0% 0% 0% round 0px)", filter: "sepia(0) saturate(1) hue-rotate(0deg) brightness(1) contrast(1) blur(0px)" },
       { scale: () => celularPeq() ? .42 : .28, clipPath: "inset(0% 0% 0% 0% round 10px)",
       filter: "sepia(0) saturate(0) hue-rotate(0deg) brightness(.62) contrast(.85) blur(0px)", duration: .45, ease: "power2.inOut", immediateRender: false }, 0)
+   .fromTo(".abertura h1.frase-b", { opacity: 1 }, { opacity: 0, duration: .06, ease: "power1.in", immediateRender: false }, 0)
    .to(".brilho2,.faixas", { opacity: 1, duration: .3, ease: "power1.out" }, .12)
    // as duas linhas atravessam a tela de borda a borda: a de cima para a esquerda, a de baixo para a direita
    .fromTo(".f1 .trilha", { xPercent: 0 }, { xPercent: -50, duration: 1.06, ease: "none" }, 0)
@@ -751,6 +836,9 @@ man.innerHTML = man.innerHTML.replace(/<em class="f">(.*?)<\/em>/g, "§$1§").sp
   .map(p => /^\s+$/.test(p) ? " " : p.startsWith("§") ? `<span class="w f">${p.slice(1, -1)}</span>` : `<span class="w">${p}</span>`).join("");
 gsap.to("#manif .w", { opacity: 1, stagger: .05, ease: "none", scrollTrigger: { trigger: "#manif", start: "top 80%", end: "bottom 45%", scrub: true } });
 
+// versão B: o logo pequeno aparece quando a foto começa a encolher (antes disso o TVF grande é a marca)
+if (VERSAO_B) ScrollTrigger.create({ start: 60, end: "max", onEnter: () => document.querySelector(".barra .logo").classList.remove("escondido"),
+  onLeaveBack: () => document.querySelector(".barra .logo").classList.add("escondido") });
 // o logo do topo só fica nas duas primeiras telas: sobe e some quando começa o texto do manifesto
 ScrollTrigger.create({ trigger: "#metodo", start: "top 85%", refreshPriority: -1,
   onEnter: () => document.querySelector(".barra .logo").classList.add("sobe"), onLeaveBack: () => document.querySelector(".barra .logo").classList.remove("sobe") });
