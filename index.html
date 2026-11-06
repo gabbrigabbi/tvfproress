@@ -99,6 +99,7 @@ body[data-tema="laranja"] .barra .logo img{filter:brightness(0)}
 
 /* ABERTURA */
 .abertura{height:100svh;min-height:620px;position:relative;overflow:hidden}
+.abertura{touch-action:pan-y}   /* rodada 59: deslizar de lado na abertura mexe no raio-x em vez de rolar */
 #raiox{position:absolute;inset:0;width:100%;height:100%;z-index:2;transform-origin:50% 50%;will-change:transform,filter,clip-path}
 .abertura{background:transparent}
 .brilho2{position:absolute;inset:0;z-index:0;opacity:0;pointer-events:none;
@@ -765,8 +766,27 @@ function solta(x, y) {
   ux = x; uy = y;
 }
 let encolheu = false;
-ab.addEventListener("pointermove", e => { if (encolheu) return; const r = rx.getBoundingClientRect(); solta(e.clientX - r.left, e.clientY - r.top); });
+ab.addEventListener("pointermove", e => { if (encolheu || e.pointerType !== "mouse") return; const r = rx.getBoundingClientRect(); solta(e.clientX - r.left, e.clientY - r.top); });
 ab.addEventListener("pointerleave", () => { ux = uy = null; });
+// rodada 59 — celular: o dedo rolava a página, o navegador cancelava o ponteiro e o raio-x sumia em pontinhos.
+// Agora: eventos de toque (continuam chegando mesmo rolando), deslizar de lado não rola a página (touch-action pan-y no CSS),
+// tocar solta um respingo de raio-x, e sozinho, de tempos em tempos, um "dedo invisível" passa pelo celular para mostrar o efeito.
+let ultimoToque = 0;
+const ponto = t => { const r = rx.getBoundingClientRect(); return [t.clientX - r.left, t.clientY - r.top]; };
+function respingo(x, y) {
+  for (let i = 0; i < 16; i++) { const a = Math.random() * Math.PI * 2, v = .8 + Math.random() * 2.6;
+    gotas.push({ x: x + Math.cos(a) * 6, y: y + Math.sin(a) * 6, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 20 + Math.random() * 20, vida: 1, cai: .011 + Math.random() * .01 }); }
+}
+ab.addEventListener("touchstart", e => { if (encolheu) return; ux = uy = null; respingo(...ponto(e.touches[0])); ultimoToque = Date.now(); }, { passive: true });
+ab.addEventListener("touchmove", e => { if (encolheu) return; solta(...ponto(e.touches[0])); ultimoToque = Date.now(); }, { passive: true });
+ab.addEventListener("touchend", () => { ux = uy = null; }, { passive: true });
+function demoRaiox() {   // o dedo invisível: uma curva de baixo-esquerda para cima-direita, por cima do celular
+  if (encolheu || scrollY > 10 || document.hidden) return;
+  const W = rx.clientWidth, H = rx.clientHeight, p = { t: 0 }; ux = uy = null;
+  gsap.to(p, { t: 1, duration: 1.7, ease: "power1.inOut", onUpdate: () => { if (encolheu) return;
+      const t = p.t; solta(W * (.12 + .76 * t), H * (.66 - .32 * t + .07 * Math.sin(t * Math.PI * 2))); },
+    onComplete: () => { ux = uy = null; } });
+}
 gsap.ticker.add(() => {
   if (!base) return; const W = rx.clientWidth, H = rx.clientHeight;
   rg.clearRect(0, 0, W, H); rg.drawImage(base, 0, 0, W, H);
@@ -839,7 +859,9 @@ gsap.timeline()
   .to("#raiox", { scale: 1, filter: "sepia(0) saturate(1) hue-rotate(0deg) brightness(1) contrast(1) blur(0px)", duration: 1.1, ease: "power3.out" }, "<.25")
   .set([car, logoC], { display: "none" }, "<.7")
   .from(".barra", { opacity: 0, y: 14, duration: .9, ease: expo }, "<")
-  .from(".abertura h1.frase-b", { opacity: 0, y: 18, duration: .9, ease: expo }, "<.12");
+  .from(".abertura h1.frase-b", { opacity: 0, y: 18, duration: .9, ease: expo }, "<.12")
+  .call(() => { if (!toque) return; demoRaiox();   // celular: mostra o raio-x logo depois do carregamento e repete se ninguém mexer
+    setInterval(() => { if (Date.now() - ultimoToque > 5000) demoRaiox(); }, 7000); }, null, ">-.3");
 
 // 2ª tela (como o site de referência): a abertura fica presa; a foto encolhe até um quadro no centro, ganha um tom
 // cinza sem cor e de pouco contraste (pedido dele, rodada 26), o fundo vai para um marrom entre o laranja e o preto, e a assinatura TVF se escreve por cima
