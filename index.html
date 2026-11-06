@@ -188,13 +188,22 @@ html.versao-a .abertura h1.frase-b{position:absolute;width:1px;height:1px;overfl
 .frase p b{font-weight:600}
 .frase .assin-mini{height:70px;width:auto;margin:22px 0 10px;filter:invert(var(--gi,0)) drop-shadow(0 1px 4px rgba(0,0,0,.2))}
 .frase cite{font-style:normal;color:var(--gs)}
-@media (max-width:860px){.trilho2{gap:12vw;height:74vh}.gi{margin-left:0}.gi.v.alta .mold{height:46vh}.gi.v.media .mold{height:36vh}.gi.h.grande .mold{height:28vh}.gi.h.media .mold{height:24vh}.frase{width:72vw}}
+@media (max-width:860px){.trilho2{gap:12vw;height:74vh}.gi{margin-left:0}.frase{width:72vw}
+  /* rodada 57: versão do celular — cada foto com largura e altura fixas (o iPhone esticava pela proporção) e inteira na tela */
+  .trilho2{gap:9vw;height:auto;min-height:70vh;align-items:center}
+  .gi,.gi.meio,.gi.baixo{align-self:center}
+  .gi.topo{align-self:flex-start}.gi.baixo{align-self:flex-end}
+  .gi.v .mold,.gi.v.alta .mold,.gi.v.media .mold,.gi.v.peq .mold{width:58vw;height:calc(58vw * 14 / 9);aspect-ratio:auto}
+  .gi.v.peq .mold{width:46vw;height:calc(46vw * 14 / 9)}
+  .gi.h .mold,.gi.h.grande .mold,.gi.h.media .mold{width:82vw;height:calc(82vw * 10 / 16);aspect-ratio:auto}
+  .gi .mold img,.gi .mold video{transform:none}
+  .gi figcaption{font-size:10px;margin-bottom:8px}}
 /* foto em tela cheia */
 .foto-cheia{position:relative;z-index:2;height:100vh;overflow:hidden;margin-top:130vh}   /* rodadas 43/44: 60vh das mãos entrando + 70vh de pausa com o antes/depois parado, para dar tempo de ler */   /* passa por cima do antes/depois preso */
 .fc-moldura{position:absolute;inset:0}
 .fc-moldura img{width:100%;height:100%;object-fit:cover;object-position:36% 50%;display:block}   /* no celular a câmera fica no centro */
-/* duas frentes (rodada 44: 40vh de espaço vazio depois da galeria, para ela sair antes do texto entrar) */
-.frentes{position:relative;z-index:1;min-height:100vh;margin-top:40vh;overflow:hidden;display:grid;place-items:center;padding:0 var(--g)}
+/* duas frentes (rodada 58: sem espaço vazio depois da galeria — o REC sobe colado nela e está no centro quando a galeria some; a rodada 44 tinha 40vh) */
+.frentes{position:relative;z-index:1;min-height:100vh;margin-top:0;overflow:hidden;display:grid;place-items:center;padding:0 var(--g)}
 .frentes .lado{position:absolute;bottom:-40px;padding:40px;height:calc(min(88vh,920px) + 80px);pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 58%,transparent 96%);mask-image:linear-gradient(180deg,#000 58%,transparent 96%)}   /* rodada 32: o pé das mãos some em degradê, sem corte. Rodada 41: a máscara recorta tudo fora da caixa, inclusive o desfoque —
    40 px de folga em volta da imagem (e a posição compensada) para o desfoque não sair quadrado */   /* raio-X 88 e laranja 79: assim os dois iPhones ficam do mesmo tamanho */
 .frentes .lado img{height:100%;width:auto;display:block;will-change:transform}
@@ -394,9 +403,19 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   .frentes{place-items:start center;padding-top:16vh}.frentes .par{gap:5vw}.frentes p{font-size:14px}
   .frentes .lado{height:calc(58vh + 80px)}.frentes .lado.d{height:calc(52vh + 80px)}.frentes .lado.e{translate:-52% 0}.frentes .lado.d{translate:50% 0}
   .cartoes,.pessoas{grid-template-columns:1fr}
-  .cartao{aspect-ratio:1/1}.cartoes .cartao{width:100%}
-  .cartoes .cartao.largo{height:auto;aspect-ratio:1/1}.cartao.largo .base{width:auto;right:60px}
-  .cartao.largo .pontos{top:15%;right:0;left:0;width:100%;height:28%}.cartao.largo .dica{display:none}
+  /* rodada 57: dois cards lado a lado; o 9 (autoridade) na largura dos dois; tocar num card abre ele na largura toda com as aulas */
+  .cartoes{gap:10px}
+  .cartoes .cartao{width:calc((100% - 10px) / 2);aspect-ratio:3/4}
+  .cartao .topo{left:12px;right:12px;top:12px;font-size:9px;letter-spacing:.06em}
+  .cartao .base{left:12px;right:12px;bottom:14px}
+  .cartao .base b{font-size:21px}
+  .cartao ol{font-size:13px;line-height:1.45}
+  .cartoes .cartao.aberto{width:100%;aspect-ratio:1/1}
+  .cartoes .cartao.aberto .base b{font-size:30px}
+  .cartoes .cartao.largo,.cartoes .cartao.largo.aberto{width:100%;height:auto;aspect-ratio:16/11}
+  .cartao.largo .base{width:auto;right:12px}.cartao.largo .base b{font-size:26px}
+  .cartoes .cartao.largo.aberto{aspect-ratio:1/1}
+  .cartao.largo .pontos{top:13%;left:2.5%;right:auto;width:95%;height:44%}.cartao.largo .dica{display:none}
   .incluso{grid-template-columns:1fr 1fr}
   .depos{grid-template-columns:1fr;margin-top:6vh}
   .leque{flex-direction:column;align-items:center;gap:6vh}.leque .v{width:62vw;border-radius:12px}
@@ -876,7 +895,7 @@ tlg.to(trilho2, { x: () => -distancia(), ease: "none", duration: 1 }, 0)
    .fromTo(document.body, { "--gfundo": "#0B0B0C" }, { "--gfundo": "#F2EADF", ease: "power1.inOut", duration: .22 }, .3)
    .to(gal, { "--gt": "#141414", "--gs": "#6f6a63", "--gi": 1, ease: "none", duration: .03 }, .395);
 // cada foto anda um pouco dentro da moldura (paralaxe) enquanto passa
-gal.querySelectorAll(".mold img,.mold video").forEach((m, i) => gsap.fromTo(m, { xPercent: -6 }, { xPercent: 6, ease: "none",
+if (!celularPeq()) gal.querySelectorAll(".mold img,.mold video").forEach((m, i) => gsap.fromTo(m, { xPercent: -6 }, { xPercent: 6, ease: "none",
   scrollTrigger: { trigger: gal, start: "top top", end: () => "+=" + distancia(), scrub: true } }));
 // rodada 42 (como no site do Lando Norris): o antes/depois do REC para quando o pé dele bate no pé da tela e fica parado;
 // a foto da câmera, já em tela cheia, sobe por cima e cobre. Sem espaço extra (pinSpacing false): a foto vem logo depois.
@@ -887,12 +906,14 @@ ScrollTrigger.create({ trigger: ".foto-cheia", start: "top top", refreshPriority
 // vêm de fora do quadro, nítidas; quando o texto chega ao centro da tela estão no lugar e desfocadas (o texto fica legível)
 // a da direita está espelhada, então o mesmo xPercent negativo a leva para fora pela direita
 document.querySelectorAll(".frentes [data-entra]").forEach(p => gsap.fromTo(p, { xPercent: -70, filter: "blur(0px)" },
-  { xPercent: 0, filter: "blur(5px)", ease: "power2.out", scrollTrigger: { trigger: ".frentes", start: "top top", end: "+=60%", scrub: .6 } }));
+  { xPercent: 0, filter: "blur(5px)", ease: "power2.out", scrollTrigger: { trigger: ".frentes",
+    // rodada 57: no celular entram enquanto a seção sobe e já estão no quadro quando ela chega no centro; no computador, igual antes
+    start: () => celularPeq() ? "top 95%" : "top top", end: () => celularPeq() ? "top 30%" : "+=60%", scrub: .6, invalidateOnRefresh: true } }));
 // rodada 44: as mãos só entram depois que a seção para (o texto chega primeiro, sozinho): 60% de rolagem com a tela parada
 
 // cartões: entram em cascata; no toque, abrem a lista
 gsap.utils.toArray(".sobe").forEach(s => gsap.to(s, { opacity: 1, y: 0, duration: 1.2, ease: expo, scrollTrigger: { trigger: s, start: "top 90%" } }));
-document.querySelectorAll(".cartao").forEach(c => c.addEventListener("click", () => c.classList.toggle("aberto")));
+document.querySelectorAll(".cartao").forEach(c => c.addEventListener("click", () => { c.classList.toggle("aberto"); if (celularPeq()) setTimeout(() => ScrollTrigger.refresh(), 60); }));   // no celular o card aberto muda a altura da página
 // cartões de vidro: contorno em SVG no formato da pastinha (cantos de 14 px, canto de baixo cortado em 64 px) e um brilho
 // que corre pelo contorno conforme o cartão passa na tela (cada coluna um pouco atrasada)
 const NS = "http://www.w3.org/2000/svg";
