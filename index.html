@@ -348,6 +348,19 @@ a.v{display:block}
 .pessoa a{font-size:13px;color:var(--suave)}
 
 /* dúvidas */
+/* rodada 56: WhatsApp do atendimento TVF (+55 11 93924-6496) */
+.zap{position:fixed;right:var(--g);bottom:22px;z-index:49;display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 18px 0 14px;border-radius:999px;
+  background:rgba(11,11,12,.55);color:#fff;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:0;translate:0 24px;pointer-events:none;
+  transition:opacity .5s var(--expo),translate .7s var(--expo),background-color .3s}
+.zap.vivo{opacity:1;translate:0 0;pointer-events:auto}
+.zap.vivo.fora{opacity:0;translate:0 24px;pointer-events:none}
+.zap:hover{background:rgba(11,11,12,.75)}
+.zap svg{width:22px;height:22px;color:#25D366;flex:none}
+.faq-zap{margin-top:7vh;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.faq-zap span{font-family:Inter;font-weight:200;font-size:clamp(22px,2.2vw,34px);letter-spacing:-.03em}
+.faq-zap .pilula{padding:16px 24px;font-size:13px}
+.faq-zap .pilula svg{width:20px;height:20px}
 .faq{padding:14vh var(--g) 18vh}
 .faq details{border-top:1px solid var(--linha)}
 .faq details:last-child{border-bottom:1px solid var(--linha)}
@@ -390,6 +403,7 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   .mensagem .foto{width:52vw}
   .faq summary{grid-template-columns:40px 1fr 30px}.faq p{padding-left:0}
   .barra .logo{width:96px}
+  .zap{width:52px;height:52px;padding:0;justify-content:center;bottom:18px}.zap span{display:none}.zap svg{width:26px;height:26px}
   .abertura h1.frase-b{left:0;right:0;top:auto;bottom:9vh;text-align:center;margin:0 auto;font-size:19px;max-width:none;padding:0 var(--g);text-shadow:0 2px 14px rgba(0,0,0,.6)}
   .barra .pilula{display:none}
   .assinatura img{height:110px}
@@ -409,6 +423,7 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   <a href="#topo" class="logo"><img src="midia/logo.png" alt="TVF ProRes"></a>
   <button class="menu-bt" id="menu-bt" aria-label="Abrir menu"><i></i></button>
 </header>
+<a class="zap" id="zap" href="https://wa.me/5511939246496?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20TVF%20ProRes%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener" aria-label="Tirar dúvida no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3.2 29l6.5-1.7c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.6 16 26.6zm6-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>Dúvidas? Fala com a gente</span></a>
 <nav id="menu">
   <a href="#metodo">Método <small>a decisão antes do REC</small></a>
   <a href="#modulos">Módulos <small>do REC ao cliente</small></a>
@@ -571,6 +586,7 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   <details><summary><span class="mono lar">04</span><b>Por quanto tempo terei acesso?</b><i>+</i></summary><p>O acesso é de 1 ano a partir da compra, com todas as aulas, materiais, LUTs e as atualizações do programa nesse período.</p></details>
   <details><summary><span class="mono lar">05</span><b>Posso parcelar?</b><i>+</i></summary><p>Sim. São R$ 997 à vista ou 12x de R$ 103,11, direto no checkout da Kiwify.</p></details>
   <details><summary><span class="mono lar">06</span><b>E se eu não gostar?</b><i>+</i></summary><p>Você tem 7 dias de garantia pela Kiwify. Se não for para você, pede o reembolso dentro desse prazo.</p></details>
+  <div class="faq-zap"><span>Ficou alguma dúvida?</span><a class="pilula" href="https://wa.me/5511939246496?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20TVF%20ProRes%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3.2 29l6.5-1.7c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.6 16 26.6zm6-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Falar no WhatsApp</a></div>
 </section>
 </main>
 
@@ -578,7 +594,7 @@ footer{padding:12vh var(--g) 30px;overflow:hidden}
   <div class="grande bb" id="grande"><span class="fino">a sua próxima entrega</span>começa agora.</div>
   <div style="margin-top:6vh"><a class="pilula" href="https://pay.kiwify.com.br/b43kYhK" style="padding:18px 26px;font-size:13px">Garantir minha vaga →</a></div>
   <div class="rodape">
-    <div><b>TVF ProRes</b><span>Curso de gravação em ProRes no celular.</span></div>
+    <div><b>TVF ProRes</b><span>Curso de gravação em ProRes no celular.</span><a href="https://wa.me/5511939246496?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20TVF%20ProRes%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">WhatsApp · atendimento</a></div>
     <div><b>Navegar</b><a href="#metodo">Método</a><a href="#modulos">Módulos</a><a href="#time">Time</a><a href="#oferta">Entrar</a></div>
     <div><b>Instagram</b><a href="https://instagram.com/keverton_sanches">@keverton_sanches</a><a href="https://instagram.com/gabioliveiraceo">@gabioliveiraceo</a><a href="https://instagram.com/gabrielfrezzatti">@gabrielfrezzatti</a></div>
     <div><b>© TVF ProRes</b><span>Todos os direitos reservados</span></div>
@@ -839,6 +855,9 @@ gsap.to("#manif .w", { opacity: 1, stagger: .05, ease: "none", scrollTrigger: { 
 // versão B: o logo pequeno aparece quando a foto começa a encolher (antes disso o TVF grande é a marca)
 if (VERSAO_B) ScrollTrigger.create({ start: 60, end: "max", onEnter: () => document.querySelector(".barra .logo").classList.remove("escondido"),
   onLeaveBack: () => document.querySelector(".barra .logo").classList.add("escondido") });
+// botão do WhatsApp: aparece depois da 1ª tela e some no rodapé (lá o contato já está na página)
+ScrollTrigger.create({ start: () => innerHeight * .9, end: "max", onToggle: s => document.getElementById("zap").classList.toggle("vivo", s.isActive) });
+ScrollTrigger.create({ trigger: "footer", start: "top 85%", refreshPriority: -1, onEnter: () => document.getElementById("zap").classList.add("fora"), onLeaveBack: () => document.getElementById("zap").classList.remove("fora") });
 // o logo do topo só fica nas duas primeiras telas: sobe e some quando começa o texto do manifesto
 ScrollTrigger.create({ trigger: "#metodo", start: "top 85%", refreshPriority: -1,
   onEnter: () => document.querySelector(".barra .logo").classList.add("sobe"), onLeaveBack: () => document.querySelector(".barra .logo").classList.remove("sobe") });
